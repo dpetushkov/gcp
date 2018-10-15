@@ -55,3 +55,31 @@ service_account {
    }
 }
 
+resource "google_compute_target_pool" "default" {
+  name = "instance-pool"
+
+  instances = [
+    "us-west1-a/ubuntu-xenial1",
+    "us-west1-a/ubuntu-xenial2",
+    "us-west1-a/ubuntu-xenial3",
+  ]
+
+  region = "us-west1"
+
+
+}
+
+resource "google_compute_http_health_check" "default" {
+  name               = "default"
+  request_path       = "/"
+  check_interval_sec = 1
+  timeout_sec        = 1
+}
+
+resource "google_compute_forwarding_rule" "default" {
+  name       = "website-forwarding-rule"
+  region     = "us-west1"
+  target     = "instance-pool"
+  port_range = "80"
+}
+
