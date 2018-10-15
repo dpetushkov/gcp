@@ -64,6 +64,10 @@ resource "google_compute_target_pool" "default" {
     "us-west1-a/ubuntu-xenial3",
   ]
 
+  health_checks = [
+    "${google_compute_http_health_check.default.name}",
+  ]
+
   region = "us-west1"
 
 
