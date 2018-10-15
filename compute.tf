@@ -79,7 +79,7 @@ resource "google_compute_http_health_check" "default" {
 resource "google_compute_forwarding_rule" "default" {
   name       = "website-forwarding-rule"
   region     = "us-west1"
-  target     = "instance-pool"
+  target     = "${google_compute_target_pool.default.self_link}"
   port_range = "80"
 }
 
