@@ -1,5 +1,5 @@
 provider "google" {
-credentials = "/home/user/.config/gcloud/cred-terraform-admin.json"
+credentials = "/home/dpetushkov/.config/gcloud/gcloudtest-admin-b48ebe5fe863.json"
 project = "gcloudtest-admin"
 region = "us-central1"
 }

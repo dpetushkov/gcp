@@ -1,0 +1,18 @@
+---
+- hosts: gcloud
+  sudo: yes
+  remote_user: gcp
+  tasks:
+     - name: Install apache httpd
+       apt: name=apache2 state=present update_cache=yes
+
+     - name: copy index file
+       template: src=index.html.j2 dest=/var/www/html/index.html owner=www-data
+       notify:
+           - restart apache2
+
+
+  handlers:
+     - name: restart apache2
+       service: name=apache2 state=restarted
+

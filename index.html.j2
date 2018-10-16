@@ -1,0 +1,7 @@
+<html><body><h1>It works!</h1>
+<p>hostname {{ ansible_hostname }} </p>
+{% for ip in ansible_all_ipv4_addresses %} </p> 
+<p>IP address {{ ip }} </p>
+{% endfor %}
+<p></p>
+</body></html>
