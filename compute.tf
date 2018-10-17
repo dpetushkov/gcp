@@ -20,8 +20,8 @@ service_account {
 
 }
 
-output "public_ip" {
-   value = ["${google_compute_instance.instance.*.network_interface.0.access_config.0.assigned_nat_ip}"]
+output "ip" {
+ value = "${google_compute_instance.ubuntu-xenial.network_interface.0.access_config.0.assigned_nat_ip}"
 }
 
 
