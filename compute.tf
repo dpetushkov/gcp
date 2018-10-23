@@ -24,15 +24,9 @@ output "ip1" {
  value = "${google_compute_instance.ubuntu-xenial.0.network_interface.0.access_config.0.assigned_nat_ip}"
 }
 
-output "ip2" {
- value = "{google_compute_instance.ubuntu-xenial.2.network_interface.0.access_config.0.assigned_nat_ip}"
+output "ip_balancer" {
+ value = "${google_compute_forwarding_rule.default.ip_address}"
 }
-
-output "ip3" {
- value = "{google_compute_instance.ubuntu-xenial.1.network_interface.0.access_config.0.assigned_nat_ip}"
-}
-
-
 
 resource "google_compute_target_pool" "default" {
   name = "instance-pool"

@@ -1,12 +1,13 @@
 ---
 - hosts: all
   sudo: yes
+  gather_facts: True
   remote_user: gcp
   tasks:
-     - name: Install apache httpd
+     - name: Install Apache2 
        apt: name=apache2 state=present update_cache=yes
 
-     - name: copy index file
+     - name: Copy template index.html
        template: src=index.html.j2 dest=/var/www/html/index.html owner=www-data
        notify:
            - restart apache2
