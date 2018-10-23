@@ -13,9 +13,6 @@ network_interface {
    network = "default"
    access_config {}
 }
-service_account {
-   scopes = ["userinfo-email", "compute-ro", "storage-ro"]
-   }
 
 
 }
